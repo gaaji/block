@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RestController
-public class BlockDeleteUserControllar {
+public class BlockDeleteControllar {
 
 	private final BlockDeleteService blockDeleteService;
 

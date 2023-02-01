@@ -25,7 +25,7 @@ public class BlockRepositoryImpl implements BlockRepository{
 
 
 	@Override
-	public void deleteByUserIdAndBlockedUser_BlockedUserId(String userId, String blockedUserId) {
+	public void deleteByUserIdAndBlockedUser_BlockedUserId(UserId userId, String blockedUserId) {
 		this.jpaBlockRepository.deleteByUserIdAndBlockedUser_BlockedUserId(userId, blockedUserId);
 	}
 }

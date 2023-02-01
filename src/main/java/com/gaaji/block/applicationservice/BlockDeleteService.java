@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.gaaji.block.adaptor.AuthServiceClient;
 import com.gaaji.block.controller.dto.BlockedUserRequest;
+import com.gaaji.block.domain.UserId;
 import com.gaaji.block.repository.BlockRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -17,7 +18,7 @@ public class BlockDeleteService {
 	private final BlockRepository blockRepository;
 	
 	public void deleteBlock(String userId, BlockedUserRequest dto) {
-		this.blockRepository.deleteByUserIdAndBlockedUser_BlockedUserId(userId, dto.getBlockedUserId());
+		this.blockRepository.deleteByUserIdAndBlockedUser_BlockedUserId(UserId.of(userId), dto.getBlockedUserId());
 	}
 
 }

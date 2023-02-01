@@ -40,4 +40,8 @@ public class BlockedUser {
     public int hashCode() {
         return Objects.hash(blockedUserId, nickname, pictureUrl);
     }
+
+	public String getBlockedUserId() {
+		return this.blockedUserId;
+	}
 }
