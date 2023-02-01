@@ -22,4 +22,10 @@ public class BlockRepositoryImpl implements BlockRepository{
     public void save(Block block) {
         jpaBlockRepository.save(block);
     }
+
+
+	@Override
+	public void deleteByUserIdAndBlockedUser_BlockedUserId(String userId, String blockedUserId) {
+		this.jpaBlockRepository.deleteByUserIdAndBlockedUser_BlockedUserId(userId, blockedUserId);
+	}
 }

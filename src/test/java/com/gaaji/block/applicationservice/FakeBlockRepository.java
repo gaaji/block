@@ -28,5 +28,11 @@ public class FakeBlockRepository implements BlockRepository {
 
     }
 
+	@Override
+	public void deleteByUserIdAndBlockedUser_BlockedUserId(String userId, String blockedUserId) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

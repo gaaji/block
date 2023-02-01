@@ -15,4 +15,6 @@ public interface BlockRepository {
         return UUID.randomUUID().toString();
     }
 
+	void deleteByUserIdAndBlockedUser_BlockedUserId(String userId, String blockedUserId);
+
 }
