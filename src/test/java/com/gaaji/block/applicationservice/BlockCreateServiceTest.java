@@ -1,15 +1,16 @@
 package com.gaaji.block.applicationservice;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.gaaji.block.adaptor.AuthServiceClient;
 import com.gaaji.block.controller.dto.BlockedUserRequest;
 import com.gaaji.block.domain.Block;
 import com.gaaji.block.domain.UserId;
+import com.gaaji.block.exception.SelfBlockException;
 import com.gaaji.block.repository.BlockRepository;
 import java.util.List;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 class BlockCreateServiceTest {
 
@@ -24,6 +25,10 @@ class BlockCreateServiceTest {
         List<Block> blocks= blockRepository.findAllByUserId(UserId.of("userId"));
 
         assertThat(blocks.size()).isSameAs(1);
+        
+        
+        assertThatThrownBy(()->blockCreateService.createBlock("userId", new BlockedUserRequest("userId"))).isInstanceOf(SelfBlockException.class);
+
     }
 
 }

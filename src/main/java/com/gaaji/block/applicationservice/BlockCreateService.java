@@ -7,6 +7,7 @@ import com.gaaji.block.domain.Block;
 import com.gaaji.block.domain.BlockId;
 import com.gaaji.block.domain.BlockedUser;
 import com.gaaji.block.domain.UserId;
+import com.gaaji.block.exception.SelfBlockException;
 import com.gaaji.block.repository.BlockRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,10 @@ public class BlockCreateService {
     private final AuthServiceClient authServiceClient;
 
     public void createBlock(String userId, BlockedUserRequest dto) {
+    	
+    	if(userId.equals(dto.getBlockedUserId())) {
+    		throw new SelfBlockException();
+    	}
 
         // AuthService에서 정보 조회
         AuthRetrieveResponse response = authServiceClient.retrieveAuth(

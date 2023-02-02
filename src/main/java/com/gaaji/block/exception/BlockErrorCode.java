@@ -9,8 +9,7 @@ import org.springframework.http.HttpStatus;
 public enum BlockErrorCode implements ErrorCode {
 
 
-    ,
-
+	SELF_BLOCK(HttpStatus.BAD_REQUEST, "b-0001","자기 자신은 차단 할 수 없습니다."),
     ;
 	
 	private final HttpStatus httpStatus;
