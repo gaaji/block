@@ -1,6 +1,8 @@
 package com.gaaji.block.domain;
 
 import java.util.Objects;
+
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -10,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable
 public class BlockedUser {
+	
     private String blockedUserId;
     private String nickname;
     private String pictureUrl;
@@ -37,4 +40,8 @@ public class BlockedUser {
     public int hashCode() {
         return Objects.hash(blockedUserId, nickname, pictureUrl);
     }
+
+	public String getBlockedUserId() {
+		return this.blockedUserId;
+	}
 }

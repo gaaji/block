@@ -31,4 +31,8 @@ public class Block {
     public String getUserId() {
         return userId.getUserId();
     }
+    
+    public String getBlockedUserId() {
+    	return blockedUser.getBlockedUserId();
+    }
 }
