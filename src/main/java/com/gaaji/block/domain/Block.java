@@ -24,8 +24,8 @@ public class Block {
         return new Block(blockId,userId,blockedUser);
     }
 
-    public String getBlockId() {
-        return blockId.getBlockId();
+    public BlockId getBlockId() {
+        return blockId;
     }
 
     public String getUserId() {

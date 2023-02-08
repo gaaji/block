@@ -29,22 +29,23 @@ public class FakeBlockRepository implements BlockRepository {
     }
     @Override
     public void save(Block block){
-        map.put(BlockId.of(block.getBlockId()), block);
+        map.put(BlockId.of(block.getBlockId().getBlockId()), block);
 
     }
 
-
 	@Override
-	public void deleteByUserIdAndBlockedUser_BlockedUserId(UserId userId, String blockedUserId) {
-		Optional<Block> map1 =map.values()
-        .stream()
-        .filter(b ->
-                UserId.of(b.getUserId())
-                        .equals(userId)).filter(b -> b.getBlockedUserId().equals(blockedUserId)).findFirst();
+	public Optional<Block> findByUserIdAndBlockedUser_BlockedUserId(UserId userId, String blockedUserId) {
+		return map.values()
+		        .stream()
+		        .filter(b ->
+		                UserId.of(b.getUserId())
+		                        .equals(userId)).filter(b -> b.getBlockedUserId().equals(blockedUserId)).findFirst();
+		 
+	}
+	@Override
+	public void delete(Block block) {
 		
-		log.debug(map1.get().getBlockId());
-		
-		map.remove(BlockId.of(map1.get().getBlockId()));
+		map.remove(BlockId.of(block.getBlockId().getBlockId()));
 	}
 
 
