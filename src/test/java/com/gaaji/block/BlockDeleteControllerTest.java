@@ -17,11 +17,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gaaji.block.applicationservice.BlockCreateService;
 import com.gaaji.block.applicationservice.BlockDeleteService;
 import com.gaaji.block.controller.BlockCreateController;
-import com.gaaji.block.controller.BlockDeleteControllar;
+import com.gaaji.block.controller.BlockDeleteController;
 import com.gaaji.block.controller.dto.BlockedUserRequest;
 
-@WebMvcTest(controllers = BlockDeleteControllar.class)
-public class BlockUserDeleteControllarTest {
+@WebMvcTest(controllers = BlockDeleteController.class)
+public class BlockDeleteControllerTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -30,7 +30,7 @@ public class BlockUserDeleteControllarTest {
     BlockDeleteService blockDeleteService;
 
     @InjectMocks
-    BlockDeleteControllar blockDeleteUserControllar;
+    BlockDeleteController blockDeleteUserController;
 
     @Test
     void 정상_차단이용자_삭제() throws Exception {
